@@ -21,8 +21,6 @@ export class Source extends BaseSource<Params> {
     // NOTE: never await this dispatch for early-return with empty suggestion items
     denops.dispatch("ollama", "complete", {
       callback: async (text: string) => {
-        console.log(text);
-
         const match = /^(?<indent>\s*).+/.exec(text);
         const indent = match?.groups?.indent;
 
